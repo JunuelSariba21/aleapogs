@@ -1,0 +1,121 @@
+:host {
+  --bg-dark: #0a0e1a;
+  --card-bg: rgba(22, 27, 43, 0.95);
+  --input-bg: #1e253a;
+  --accent-blue: #2563eb;
+  --accent-gold: #fbbf24;
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
+}
+
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://w.wallhaven.cc/full/8o/wallhaven-8o9mky.jpg'); /* Replace with your MLBB background */
+  background-size: cover;
+  background-position: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.login-card {
+  background: var(--card-bg);
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+.logo-box {
+  background: var(--accent-blue);
+  width: 60px; height: 60px;
+  border-radius: 15px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+h1 { font-size: 28px; margin-bottom: 5px; color: var(--text-main); }
+.subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 30px; }
+
+/* Input Styles */
+.input-group { text-align: left; margin-bottom: 20px; }
+.input-group label { display: block; font-size: 13px; margin-bottom: 8px; color: var(--text-muted); }
+
+.input-container {
+  background: var(--input-bg);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.input-container input {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  outline: none;
+}
+
+/* Button & Links */
+.login-btn {
+  width: 100%;
+  background: var(--accent-blue);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: transform 0.2s;
+}
+
+.login-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+.divider {
+  margin: 25px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+}
+
+.divider span {
+  background: var(--card-bg);
+  padding: 0 10px;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
+
+.social-btn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.create-link { color: var(--accent-gold); text-decoration: none; font-weight: bold; }
+
+.legal-links { margin-top: 30px; display: flex; gap: 20px; }
+.legal-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; }

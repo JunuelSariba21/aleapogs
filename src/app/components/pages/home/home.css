@@ -1,0 +1,133 @@
+/* Apply a reset to the entire component */
+:host {
+  --bg-color: #05080e; /* Deep navy/black background */
+  --card-bg: #10141e; /* Sightly lighter card color */
+  --accent-blue: #3b82f6; /* Neon Blue */
+  --accent-gold: #fbbf24; /* Warm Gold */
+  --text-primary: #ffffff;
+  --text-muted: #94a3b8;
+  
+  display: block;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  padding: 60px 20px;
+}
+
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* 1. Enhanced Header Styling */
+.main-header {
+  text-align: center;
+  margin-bottom: 70px;
+  position: relative;
+}
+
+.logo-accent {
+  width: 50px; height: 4px;
+  background-color: var(--accent-blue);
+  margin: 0 auto 15px;
+  border-radius: 2px;
+}
+
+.main-header h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* 2. Modern 3-Column Grid Layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* 3. Card Base Styling */
+.dash-card {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Interaction: The 'Better' part */
+.dash-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.dash-card:hover .card-glow { opacity: 1; }
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.dash-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+.dash-card p {
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+/* 4. Action Button Styling */
+.dash-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.dash-btn:hover {
+  background-color: var(--text-primary);
+  color: var(--bg-color);
+}
+
+/* 5. Specific Card Accents (Subtle Glows) */
+.card-glow {
+  position: absolute;
+  top: -50px; left: -50px;
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-items .card-glow { background-color: var(--accent-blue); }
+.card-roles .card-glow { background-color: var(--text-muted); }
+.card-builds .card-glow { background-color: var(--accent-gold); }
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .main-header h1 { font-size: 2.5rem; }
+}

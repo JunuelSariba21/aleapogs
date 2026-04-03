@@ -1,0 +1,37 @@
+<div class="main-container">
+
+  <header class="main-header">
+    <div class="logo-accent"></div>
+    <h1>Build of Dawn</h1>
+    <p class="subtitle">Your Ultimate MLBB Item & Hero Guide</p>
+  </header>
+
+  <main class="dashboard-grid">
+    
+    <div class="dash-card card-items">
+      <div class="card-glow"></div>
+      <span class="card-icon">⚔</span>
+      <h3>Items</h3>
+      <p>Master every stat, effect, and passive in the game.</p>
+      <button class="dash-btn">Browse Library</button>
+    </div>
+
+    <div class="dash-card card-roles clickable-card" [routerLink]="['/heroes']">
+  <div class="card-glow"></div>
+  <span class="card-icon">🛡</span>
+  <h3>Heroes</h3>
+  <p>Understand complex different heroes.</p>
+  <button class="dash-btn" [routerLink]="['/heroes']">Master Roles</button>
+</div>
+
+    <div class="dash-card card-builds">
+      <div class="card-glow"></div>
+      <span class="card-icon">✨</span>
+      <h3>Best Builds</h3>
+      <p>Explore recommended item sets for every hero in the current meta.</p>
+      <button class="dash-btn">View Builds</button>
+    </div>
+
+  </main>
+
+</div>

@@ -1,0 +1,47 @@
+<div class="about-container">
+  <header class="hero-card">
+    <span class="badge">PROJECT SHOWCASE</span>
+    <h1 class="main-title">Build of Dawn: A Guide to MLBB Items and Hero Compatibility</h1>
+    <p class="hero-desc">
+      A comprehensive academic project developed for the course 
+      <a href="#" class="accent-link">WST101 - Web Systems and Technologies</a>.
+    </p>
+  </header>
+
+
+  <div class="split-grid">
+    <section>
+      <h3 class="section-header">🎯 Project Objectives</h3>
+      <div class="objective-card" *ngFor="let obj of objectives">
+        <span class="check">✔</span>
+        <p>{{ obj }}</p>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="section-header">✨ Key Features</h3>
+      <div class="feature-card" *ngFor="let f of features">
+        <h4>{{ f.title }}</h4>
+        <p>{{ f.desc }}</p>
+      </div>
+    </section>
+  </div>
+
+  <footer class="scope-container">
+    <h3 class="section-header"><span class="icon">👁</span> Scope & Limitations</h3>
+    <div class="scope-grid">
+      <div class="scope-col">
+        <h5 class="sub-label">PROJECT SCOPE</h5>
+        <p>This project covers the current meta of Mobile Legends: Bang Bang, focusing on item interactions, hero roles, and build optimization strategies for both casual and competitive play.</p>
+      </div>
+      <div class="scope-col">
+        <h5 class="sub-label">TECHNICAL LIMITATIONS</h5>
+        <ul>
+          <li>No direct real-time interaction with Moonton's game servers.</li>
+          <li>Data dependency on periodic manual updates following game patches.</li>
+          <li>Statistical analysis is based on general meta trends, not individual player skill.</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>

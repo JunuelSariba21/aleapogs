@@ -1,0 +1,92 @@
+:host {
+  --bg-color: #0d111d;
+  --card-bg: #161b2b;
+  --accent-blue: #3b82f6;
+  --text-white: #ffffff;
+  --text-muted: #94a3b8;
+  display: block;
+  background-color: var(--bg-color);
+  color: var(--text-white);
+  font-family: 'Inter', sans-serif;
+  padding: 40px 20px;
+}
+
+.about-container { max-width: 1000px; margin: 0 auto; }
+
+/* Hero Card */
+.hero-card {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  padding: 50px;
+  border-radius: 20px;
+  margin-bottom: 50px;
+  border: 1px solid #1e293b;
+}
+
+.badge { color: var(--accent-blue); font-size: 12px; font-weight: bold; }
+.main-title { font-size: 42px; margin: 15px 0; font-weight: 800; }
+.accent-link { color: var(--accent-blue); text-decoration: none; }
+
+/* Team Section */
+.team-grid, .split-grid, .scope-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.section-header { margin-bottom: 25px; font-size: 20px; display: flex; align-items: center; gap: 10px; }
+
+.member-card {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  width: 60px; height: 60px;
+  background: var(--accent-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.tag { font-size: 10px; background: #1e293b; padding: 4px 8px; border-radius: 4px; color: var(--accent-blue); }
+
+/* Objective Items */
+.objective-card {
+  background: #111827;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 15px;
+  font-size: 14px;
+}
+
+.check { color: #eab308; }
+
+/* Feature Items */
+.feature-card {
+  background: #111827;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  border-left: 4px solid var(--accent-blue);
+}
+
+.feature-card h4 { margin: 0 0 5px 0; }
+.feature-card p { font-size: 13px; color: var(--text-muted); margin: 0; }
+
+/* Footer / Scope */
+.scope-container { background: var(--card-bg); padding: 40px; border-radius: 20px; }
+.sub-label { color: var(--accent-blue); margin-bottom: 15px; font-size: 14px; }
+.scope-col p, .scope-col li { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+@media (max-width: 768px) {
+  .team-grid, .split-grid, .scope-grid { grid-template-columns: 1fr; }
+}

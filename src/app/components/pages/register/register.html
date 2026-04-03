@@ -1,0 +1,60 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <div class="header">
+      <div class="logo-box">
+        <span class="sword-icon">⚔</span>
+      </div>
+      <h1>Build of Dawn</h1>
+      <p class="subtitle">Access the Ultimate MLBB Guide Library</p>
+    </div>
+
+    <form (submit)="login(); $event.preventDefault()">
+      <div class="input-group">
+        <label>Username or Email</label>
+        <div class="input-container">
+          <span class="icon">👤</span>
+          <input type="text" name="username" [(ngModel)]="username" placeholder="Summoner name or email">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <div class="input-container">
+          <span class="icon">🔒</span>
+          <input [type]="showPassword ? 'text' : 'password'" name="password" [(ngModel)]="password" placeholder="••••••••">
+          <span class="toggle-eye" (click)="showPassword = !showPassword">👁</span>
+        </div>
+      </div>
+
+      <div class="form-options">
+        <label class="checkbox-container">
+          <input type="checkbox"> Remember me
+        </label>
+        <a href="#" class="forgot-link">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="login-btn">
+        SIGN IN TO DAWN ➜
+      </button>
+    </form>
+
+    <div class="divider">
+      <span>OR CONTINUE WITH</span>
+    </div>
+
+    <div class="social-grid">
+      <button class="social-btn"><span class="google-icon">G</span> Google</button>
+      <button class="social-btn"><span class="discord-icon">D</span> Discord</button>
+    </div>
+
+    <p class="footer-text">
+      New to the Land of Dawn? <a href="#" class="create-link">Create an Account</a>
+    </p>
+  </div>
+
+  <footer class="legal-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Support</a>
+  </footer>
+</div>
