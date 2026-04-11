@@ -7,11 +7,13 @@ import { HeroGalleryComponent } from './components/pages/heroes/heroes';
 import { HeroRolesComponent } from './components/pages/roles/roles';
 import { HeroDetailComponents } from './components/pages/hero-detail/hero-detail';
 import { ItemsComponent } from './components/pages/items/items';
+import { ItemDetailComponent } from './components/pages/item-detail/item-detail';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'home', component: HomeComponent },
   { path: 'items', component: ItemsComponent },
+  { path: 'items/:name', component: ItemDetailComponent },
   { path: 'register', component: LoginComponent },
   { path: 'about', component: AboutComponent },
   { path: 'heroes', component: HeroGalleryComponent },

@@ -6,7 +6,7 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Client // This tells Angular NOT to prerender this route
   },
   {
-    path: 'items/*',
+    path: 'items/:name',
     renderMode: RenderMode.Client // Do the same for items to avoid the next error
   },
   {
