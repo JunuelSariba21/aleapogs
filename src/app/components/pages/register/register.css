@@ -119,3 +119,58 @@ h1 { font-size: 28px; margin-bottom: 5px; color: var(--text-main); }
 
 .legal-links { margin-top: 30px; display: flex; gap: 20px; }
 .legal-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
+
+/* Add these to your existing register.css */
+
+.error-toast {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 20px;
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.login-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Spinner Animation */
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.toggle-eye {
+  cursor: pointer;
+  padding: 5px;
+  user-select: none;
+}
+
+.create-link {
+  color: #16C47F; /* Using your premium green here */
+  transition: color 0.3s;
+}
+
+.create-link:hover {
+  color: #fbbf24;
+}
