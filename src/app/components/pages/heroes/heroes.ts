@@ -1,28 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HeroService, Hero } from '../../../services/hero.service';
 
 @Component({
   selector: 'app-hero-gallery',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './heroes.html',
   styleUrls: ['./heroes.css']
 })
-export class HeroGalleryComponent {
-  // Define roles for the filter buttons
+export class HeroGalleryComponent implements OnInit {
+  // Signals for reactive state
+  allHeroes = signal<Hero[]>([]);
+  searchQuery = signal('');
+  selectedRole = signal('All');
+
   roles = ['All', 'Tank', 'Fighter', 'Assassin', 'Mage', 'Marksman', 'Support'];
-  
-  heroes = [
-    { name: 'Miya', role: 'Marksman', image: 'MIYA.jpg' },
-    { name: 'Gusion', role: 'Assassin / Mage', image: 'assets/heroes/gusion.jpg' },
-    { name: 'Tigreal', role: 'Tank / Support', image: 'assets/heroes/tigreal.jpg' },
-    { name: 'Balmond', role: 'Fighter', image: 'assets/heroes/balmond.jpg' },
-    { name: 'Eudora', role: 'Mage', image: 'assets/heroes/eudora.jpg' },
-    { name: 'Zilong', role: 'Fighter / Assassin', image: 'assets/heroes/zilong.jpg' },
-    { name: 'Layla', role: 'Marksman', image: 'assets/heroes/layla.jpg' },
-    { name: 'Nana', role: 'Mage / Support', image: 'assets/heroes/nana.jpg' },
-    { name: 'Saber', role: 'Assassin', image: 'assets/heroes/saber.jpg' },
-    { name: 'Alucard', role: 'Fighter / Assassin', image: 'assets/heroes/alucard.jpg' }
-  ];
-  heroSlots = Array(10).fill({});
+
+  // Automatically re-calculates when search or role changes
+  filteredHeroes = computed(() => {
+    return this.allHeroes().filter(hero => {
+      const matchesSearch = hero.name.toLowerCase().includes(this.searchQuery().toLowerCase());
+      const matchesRole = this.selectedRole() === 'All' || 
+                         hero.role.toLowerCase().includes(this.selectedRole().toLowerCase());
+      return matchesSearch && matchesRole;
+    });
+  });
+
+  constructor(private heroService: HeroService) {}
+
+  ngOnInit() {
+    this.heroService.getHeroes().subscribe({
+      next: (data) => this.allHeroes.set(data),
+      error: (err) => console.error('Failed to load heroes', err)
+    });
+  }
+
+  setRole(role: string) {
+    this.selectedRole.set(role);
+  }
 }

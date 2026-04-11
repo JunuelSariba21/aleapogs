@@ -1,0 +1,41 @@
+<div class="hero-detail-wrapper" *ngIf="hero() as h">
+  
+  <header class="hero-banner" [style.backgroundImage]="'linear-gradient(to top, #05080e 10%, transparent), url(' + h.image + ')'">
+    <div class="banner-content">
+      <span class="role-badge">{{ h.role }}</span>
+      <h1 class="hero-name">{{ h.name }}</h1>
+    </div>
+  </header>
+
+  <div class="stats-grid">
+    <section class="glass-card">
+      <h3 class="label">ATTRIBUTES</h3>
+      <div class="attr-list">
+        <div class="attr-row" *ngFor="let s of [{t:'Durability', v:h.durability, c:'green'}, {t:'Offense', v:h.offense, c:'blue'}, {t:'Difficulty', v:h.difficulty, c:'gold'}]">
+          <div class="attr-meta"><span>{{ s.t }}</span><span>{{ s.v }}%</span></div>
+          <div class="track"><div class="fill" [ngClass]="s.c" [style.width.%]="s.v"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="glass-card">
+      <div class="label-row">
+        <h3 class="label">RECOMMENDED BUILD</h3>
+        <span class="gold-total">💰 {{ getTotalCost(h.recommendedBuild) }} Gold</span>
+      </div>
+      <div class="gold-summary">
+  💰 Total Gold Required: {{ calculateGold(h.recommendedBuild) }}
+</div>
+
+      <div class="item-grid">
+        <div class="item-slot" *ngFor="let item of h.recommendedBuild" [title]="item.item_name">
+          <img [src]="item.item_icon" class="item-img" onerror="this.src='https://placehold.co/100/1e293b/white?text=⚔️'">
+        </div>
+      </div>
+      
+      <p class="description">{{ h.description }}</p>
+    </section>
+  </div>
+
+  <a routerLink="/heroes" class="back-nav">← Back to Gallery</a>
+</div>

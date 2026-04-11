@@ -1,33 +1,38 @@
 <div class="gallery-wrapper">
   
   <header class="header">
-    <div class="updated-banner">UPDATED SEASON 31</div>
+    <div class="updated-banner">SEASON 31 META</div>
     <h1>Hero <span class="highlight">Gallery</span></h1>
-    <p>Master the legends of the Land of Dawn. Explore stats, builds, and strategies for every hero.</p>
+    <p>Select a hero to explore their specific item compatibility and stats.</p>
   </header>
 
   <div class="controls-container">
     <div class="search-bar">
       <span class="search-icon">🔍</span>
-      <input type="text" placeholder="Search heroes (e.g. Gusion, Miya, Tigreal...)">
-      <span class="x-icon">✖</span>
+      <input 
+        type="text" 
+        [(ngModel)]="searchQuery" 
+        placeholder="Search for a legend...">
     </div>
 
     <div class="filter-buttons">
-      <button *ngFor="let role of roles; let i = index" [class.active]="i === 0">
-        <span class="role-icon"></span>
+      <button 
+        *ngFor="let role of roles" 
+        (click)="setRole(role)"
+        [class.active]="selectedRole() === role">
         {{role}}
       </button>
     </div>
   </div>
 
-<main class="hero-grid">
-  <div class="hero-card" *ngFor="let hero of heroes">
-    
-    <div class="image-container">
-      <img *ngIf="hero.image" [src]="hero.image" [alt]="hero.name" class="hero-img">
-      <div *ngIf="!hero.image" class="image-placeholder">
-        <span class="no-image-text">No Image</span>
+  <main class="hero-grid">
+  <div 
+    class="hero-card" 
+    *ngFor="let hero of filteredHeroes()" 
+    [routerLink]="['/heroes', hero.name]"> <div class="image-container">
+      <img [src]="hero.image" [alt]="hero.name" class="hero-img">
+      <div class="card-overlay">
+        <span class="view-btn">VIEW STATS</span>
       </div>
     </div>
     
@@ -38,11 +43,8 @@
   </div>
 </main>
 
-  <footer class="footer">
-    <button class="load-more-btn">
-      Load More Legends 
-      <span class="arrow-down">▼</span>
-    </button>
-  </footer>
+  <div class="empty-state" *ngIf="filteredHeroes().length === 0">
+    <p>No heroes found. Try a different role or name.</p>
+  </div>
 
 </div>
