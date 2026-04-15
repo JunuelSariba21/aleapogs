@@ -1,0 +1,99 @@
+[
+  {
+    "item_name": "Blade of Despair",
+    "price": "3010",
+    "category": "Attack",
+    "item_icon": "assets/items/blade-of-despair.png",
+    "description": "A powerful late-game physical attack item that greatly increases damage output. Best used by assassins and marksmen to finish low-health enemies.",
+    "modifiers": [
+      "+160 Physical Attack",
+      "+5% Movement Speed"
+    ],
+    "unique_passive": "Despair: Deals 25% extra damage to enemies below 50% HP."
+  },
+  {
+    "item_name": "Berserker's Fury",
+    "price": "2350",
+    "category": "Critical",
+    "item_icon": "assets/items/berserkers-fury.png",
+    "description": "A core critical item for marksmen and fighters that boosts critical chance and critical damage.",
+    "modifiers": [
+      "+65 Physical Attack",
+      "+25% Critical Chance"
+    ],
+    "unique_passive": "Doom: Critical hits deal increased critical damage."
+  },
+  {
+    "item_name": "Corrosion Scythe",
+    "price": "2050",
+    "category": "Attack Speed",
+    "item_icon": "assets/items/corrosion-scythe.png",
+    "description": "Excellent for attack speed heroes. Slows enemies while increasing attack speed continuously.",
+    "modifiers": [
+      "+30 Physical Attack",
+      "+35% Attack Speed",
+      "+5% Movement Speed"
+    ],
+    "unique_passive": "Corrosion: Basic attacks slow enemy movement speed."
+  },
+  {
+    "item_name": "Demon Hunter Sword",
+    "price": "2180",
+    "category": "Attack Speed",
+    "item_icon": "assets/items/demon-hunter-sword.png",
+    "description": "Best anti-tank item for marksmen. Deals percentage HP damage to enemies.",
+    "modifiers": [
+      "+35 Physical Attack",
+      "+25% Attack Speed"
+    ],
+    "unique_passive": "Devour: Basic attacks deal 9% of target's current HP as bonus damage."
+  },
+  {
+    "item_name": "Athena's Shield",
+    "price": "2150",
+    "category": "Magic Defense",
+    "item_icon": "assets/items/athena-shield.png",
+    "description": "A powerful defense item against burst mages and magic assassins.",
+    "modifiers": [
+      "+900 HP",
+      "+62 Magic Defense",
+      "+2 HP Regen"
+    ],
+    "unique_passive": "Shield: Reduces magic damage taken after receiving magic burst."
+  },
+  {
+    "item_name": "Immortality",
+    "price": "2120",
+    "category": "Defense",
+    "item_icon": "assets/items/immortality.png",
+    "description": "Revives the hero after death with bonus HP and shield. Best late-game survival item.",
+    "modifiers": [
+      "+800 HP",
+      "+20 Physical Defense"
+    ],
+    "unique_passive": "Immortal: Revives hero 2.5 seconds after death."
+  },
+  {
+    "item_name": "Holy Crystal",
+    "price": "2180",
+    "category": "Magic Power",
+    "item_icon": "assets/items/holy-crystal.png",
+    "description": "Massive magic power boost for burst mages.",
+    "modifiers": [
+      "+100 Magic Power"
+    ],
+    "unique_passive": "Mystery: Greatly increases total magic power."
+  },
+  {
+    "item_name": "Blood Wings",
+    "price": "3000",
+    "category": "Magic Power",
+    "item_icon": "assets/items/blood-wings.png",
+    "description": "Highest magic power item in the game. Great for scaling mages.",
+    "modifiers": [
+      "+150 Magic Power",
+      "+500 HP"
+    ],
+    "unique_passive": "Guard: Converts magic power into shield."
+  }
+]
