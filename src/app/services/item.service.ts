@@ -12,22 +12,30 @@ export interface Item {
   unique_passive?: string;
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root'
+})
 export class ItemService {
-  private readonly itemApi = 'https://raw.githubusercontent.com/p3hndrx/MLBB-API/main/v1/item-meta-final.json';
+  private readonly itemApi = 'assets/data/items.json';
 
   constructor(private http: HttpClient) {}
 
   getItems(): Observable<Item[]> {
-    return this.http.get<any>(this.itemApi).pipe(
-      map(res => res.data || []),
-      catchError(() => of([]))
+    return this.http.get<Item[]>(this.itemApi).pipe(
+      catchError(err => {
+        console.error('Local item data failed', err);
+        return of([]);
+      })
     );
   }
 
   getItemByName(name: string): Observable<Item | undefined> {
     return this.getItems().pipe(
-      map(items => items.find(i => i.item_name.toLowerCase() === name.toLowerCase()))
+      map(items =>
+        items.find(
+          i => i.item_name.toLowerCase() === decodeURIComponent(name).toLowerCase()
+        )
+      )
     );
   }
 }

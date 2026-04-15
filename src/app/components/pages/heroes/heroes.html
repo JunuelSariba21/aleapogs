@@ -9,10 +9,11 @@
   <div class="controls-container">
     <div class="search-bar">
       <span class="search-icon">🔍</span>
-      <input 
-        type="text" 
-        [(ngModel)]="searchQuery" 
-        placeholder="Search for a legend...">
+      <input
+  type="text"
+  [ngModel]="searchQuery()"
+  (ngModelChange)="searchQuery.set($event)"
+  placeholder="Search for a legend...">
     </div>
 
     <div class="filter-buttons">

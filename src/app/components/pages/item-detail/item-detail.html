@@ -1,28 +1,51 @@
-<div class="detail-wrapper" *ngIf="item() as i">
-  <div class="detail-glass-card">
-    <div class="detail-header">
-      <div class="main-icon">
-        <img [src]="i.item_icon" alt="">
-      </div>
-      <div class="title-area">
-        <span class="role-badge">{{ i.category }}</span>
-        <h1>{{ i.item_name }}</h1>
-        <p class="gold-price">💰 {{ i.price }} Gold</p>
-      </div>
-    </div>
-
-    <div class="detail-body">
-      <section class="stat-box" *ngIf="i.modifiers">
-        <h4 class="label">ATTRIBUTES</h4>
-        <div class="mod-pill" *ngFor="let mod of i.modifiers">{{ mod }}</div>
-      </section>
-
-      <section class="passive-box" *ngIf="i.unique_passive">
-        <h4 class="label">UNIQUE PASSIVE</h4>
-        <p class="passive-desc">{{ i.unique_passive }}</p>
-      </section>
-    </div>
+<div class="item-detail-wrapper" *ngIf="item() as i">
+  <div class="glass-card">
     
-    <button routerLink="/items" class="btn-back">← BACK TO SHOP</button>
+    <!-- HEADER -->
+    <div class="detail-header">
+      <div class="icon-container">
+        <img
+          [src]="i.item_icon"
+          [alt]="i.item_name"
+          onerror="this.src='assets/items/default-item.png'">
+      </div>
+
+      <div class="title-group">
+        <span class="category-tag">{{ i.category }}</span>
+        <h1>{{ i.item_name }}</h1>
+        <p class="cost-tag">💰 {{ i.price }} Gold</p>
+      </div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div *ngIf="i.description">
+      <h4 class="section-label">DESCRIPTION</h4>
+      <div class="passive-item">
+        <p class="passive-desc">{{ i.description }}</p>
+      </div>
+    </div>
+
+    <!-- ATTRIBUTES -->
+    <div *ngIf="i.modifiers?.length">
+      <h4 class="section-label">ATTRIBUTES</h4>
+      <div class="stats-list">
+        <div class="stat-pill" *ngFor="let mod of i.modifiers">
+          <span class="stat-value">{{ mod }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASSIVE -->
+    <div *ngIf="i.unique_passive">
+      <h4 class="section-label">UNIQUE PASSIVE</h4>
+      <div class="passive-item">
+        <p class="passive-desc">{{ i.unique_passive }}</p>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <button routerLink="/items" class="btn-back">
+      ← BACK TO SHOP
+    </button>
   </div>
 </div>

@@ -1,0 +1,36 @@
+<div class="generator-container">
+  <h1>🔥 Best Build Generator</h1>
+  <p>Create the best MLBB build based on match situation.</p>
+
+  <div class="form-grid">
+    <div class="field">
+      <label>Hero</label>
+      <select [ngModel]="selectedHero()" (ngModelChange)="selectedHero.set($event)">
+        <option *ngFor="let hero of heroes" [value]="hero">{{ hero }}</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Enemy Type</label>
+      <select [ngModel]="enemyType()" (ngModelChange)="enemyType.set($event)">
+        <option *ngFor="let enemy of enemies" [value]="enemy">{{ enemy }}</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Match Phase</label>
+      <select [ngModel]="matchPhase()" (ngModelChange)="matchPhase.set($event)">
+        <option *ngFor="let phase of phases" [value]="phase">{{ phase }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="result-card">
+    <h2>✨ Recommended Build</h2>
+    <div class="build-list">
+      <div class="item" *ngFor="let item of recommendedBuild()">
+        {{ item }}
+      </div>
+    </div>
+  </div>
+</div>

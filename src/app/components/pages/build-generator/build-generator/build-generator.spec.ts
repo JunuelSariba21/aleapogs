@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RoleFighter } from './role-fighter';
+import { BuildGenerator } from './build-generator';
 
-describe('RoleFighter', () => {
-  let component: RoleFighter;
-  let fixture: ComponentFixture<RoleFighter>;
+describe('BuildGenerator', () => {
+  let component: BuildGenerator;
+  let fixture: ComponentFixture<BuildGenerator>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RoleFighter],
+      imports: [BuildGenerator],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(RoleFighter);
+    fixture = TestBed.createComponent(BuildGenerator);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

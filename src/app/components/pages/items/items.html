@@ -1,21 +1,41 @@
 <div class="items-container">
   <header class="page-header">
     <h1 class="premium-title">EQUIPMENT ARCHIVE</h1>
+    <p class="subtitle">Browse all MLBB items and learn what each item does.</p>
+
     <div class="search-box">
-      <input type="text" placeholder="Search item or category..." (input)="onSearch($event)">
+      <input
+        type="text"
+        placeholder="Search item or category..."
+        (input)="onSearch($event)">
     </div>
   </header>
 
   <div class="item-grid">
-    <div class="item-card" *ngFor="let item of filteredItems()" [routerLink]="['/items', item.item_name]">
+    <div
+      class="item-card"
+      *ngFor="let item of filteredItems()"
+      [routerLink]="['/items', item.item_name]">
+
+      <!-- ITEM IMAGE -->
       <div class="icon-holder">
-        <img [src]="item.item_icon" [alt]="item.item_name" onerror="this.src='https://placehold.co/100/1e293b/white?text=⚔️'">
+        <img
+          [src]="item.item_icon"
+          [alt]="item.item_name"
+          onerror="this.src='assets/items/default-item.png'">
       </div>
+
+      <!-- ITEM INFO -->
       <div class="card-body">
         <span class="category-tag">{{ item.category }}</span>
         <h3>{{ item.item_name }}</h3>
-        <p class="price">💰 {{ item.price }}</p>
+        <p class="price">💰 {{ item.price }} Gold</p>
       </div>
     </div>
+  </div>
+
+  <!-- EMPTY STATE -->
+  <div class="empty-state" *ngIf="filteredItems().length === 0">
+    <p>No items found. Try another keyword.</p>
   </div>
 </div>
